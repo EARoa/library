@@ -6,7 +6,8 @@
   <%= book.title %>
   <%= book.author %>
   <%= book.year %>
-  <%= if book.available? %>
+<%= book.available %>
+
     <%= link_to "Checkout", checkout_path%>
   </li>
-    <% end %>
+<% end %>

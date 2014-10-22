@@ -1,2 +1,17 @@
-<h1>Library#new_checkin</h1>
-<p>Find me in app/views/library/new_checkin.html.erb</p>
+<h1>Check in a Book</h1>
+
+Steps:
+
+<ol>
+  <li>View all books checked-out</li>
+  <li>Click check-in on that</li>
+  <li>That will checkin that book</li>
+</ol>
+
+<% @checkouts.each do |checkout| %>
+  <li>
+    <%= checkout.book.title %>. Checked Out by <%= checkout.patron.name %>  <%= distance_of_time_in_words checkout.checkout_at, Time.now %> ago.
+    <%= link_to "Checkin", checkin_path(checkout_id: checkout.id), method: :post, data: {confirm: "Check this book in? R U SURE"} %>
+
+  </li>
+<% end %>

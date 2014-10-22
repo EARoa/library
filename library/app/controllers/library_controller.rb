@@ -13,7 +13,7 @@ class LibraryController < ApplicationController
     if @checkout.save
       @checkout.book.available = false
       @checkout.book.save
-      @checkout.checkout_at = DateTime.now
+      @checkout.checked_out_at = DateTime.now
       @checkout.save
 
       redirect_to root_path, notice: "Boom"

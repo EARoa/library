@@ -1,7 +1,7 @@
 <h1>Library#new_checkout</h1>
 
 
-<% form_for @checkout do |f| %>
+<%= form_for @checkout, url: checkout_path do |f| %>
   <div>
     <%= f.label :book %>
     <%= f.collection_select :book_id, Book.all, :id, :title, prompt: true %>
@@ -11,6 +11,6 @@
     <%= f.collection_select :patron_id, Patron.all, :id, :name, prompt: true %>
   </div>
   <div>
-    <%= f.submit "Checkout Book"%>
-  
+    <%= f.submit "Checkout Book" %>
   </div>
+<% end %>
