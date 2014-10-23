@@ -11,7 +11,7 @@ Steps:
 <% @checkouts.each do |checkout| %>
   <li>
     <%= checkout.book.title %>. Checked Out by <%= checkout.patron.name %>  <%= distance_of_time_in_words checkout.checkout_at, Time.now %> ago.
-    <%= link_to "Checkin", checkin_path(checkout_id: checkout.id), method: :post, data: {confirm: "Check this book in? R U SURE"} %>
+    <%= link_to "Checkin", checkin_path(checkout_id: checkout.id), method: :post, data: {confirm: "Do you want to check this book in?"} %>
 
   </li>
 <% end %>

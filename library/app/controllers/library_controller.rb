@@ -25,5 +25,10 @@ class LibraryController < ApplicationController
 
 
   def new_checkin
+     @checkout = Checkout.find(params[:checkout_id])
+    if @checkout.update(checkin_at: DateTime.now)
+      @checkout.book.update(available: true)
+      redirect_to root_path, notice: "BOOM"
   end
+end
 end
